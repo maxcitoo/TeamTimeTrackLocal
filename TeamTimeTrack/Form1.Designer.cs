@@ -46,6 +46,9 @@
             this.comboBoxMonth = new System.Windows.Forms.ComboBox();
             this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button_Save = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonPrintExcel
@@ -77,9 +80,9 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(670, 77);
+            this.buttonReset.Location = new System.Drawing.Point(671, 113);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.Size = new System.Drawing.Size(70, 23);
             this.buttonReset.TabIndex = 3;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -158,10 +161,10 @@
             // richTextBoxControlWindow
             // 
             this.richTextBoxControlWindow.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richTextBoxControlWindow.Location = new System.Drawing.Point(26, 166);
+            this.richTextBoxControlWindow.Location = new System.Drawing.Point(28, 166);
             this.richTextBoxControlWindow.Name = "richTextBoxControlWindow";
             this.richTextBoxControlWindow.ReadOnly = true;
-            this.richTextBoxControlWindow.Size = new System.Drawing.Size(719, 158);
+            this.richTextBoxControlWindow.Size = new System.Drawing.Size(733, 163);
             this.richTextBoxControlWindow.TabIndex = 12;
             this.richTextBoxControlWindow.Text = "";
             // 
@@ -263,11 +266,32 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Zeiten in Dezimalzahlen angeben bsp.: 08:30 - 16:00 = 8,5 -16,00";
             // 
+            // button_Save
+            // 
+            this.button_Save.Location = new System.Drawing.Point(671, 77);
+            this.button_Save.Name = "button_Save";
+            this.button_Save.Size = new System.Drawing.Size(70, 30);
+            this.button_Save.TabIndex = 18;
+            this.button_Save.Text = "Save";
+            this.button_Save.UseVisualStyleBackColor = true;
+            this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(776, 166);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(504, 163);
+            this.dataGridView1.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1329, 546);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button_Save);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxYear);
             this.Controls.Add(this.comboBoxMonth);
@@ -288,6 +312,7 @@
             this.Controls.Add(this.buttonPrintExcel);
             this.Name = "Form1";
             this.Text = "Team Time Track";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,5 +338,7 @@
         private ComboBox comboBoxMonth;
         private ComboBox comboBoxYear;
         private Label label7;
+        private Button button_Save;
+        private DataGridView dataGridView1;
     }
 }
