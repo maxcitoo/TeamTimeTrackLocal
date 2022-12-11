@@ -47,8 +47,9 @@
             this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button_Save = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pickedFile = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonPrintExcel
@@ -61,6 +62,7 @@
             this.buttonPrintExcel.TabIndex = 0;
             this.buttonPrintExcel.Text = "Print Excel";
             this.buttonPrintExcel.UseVisualStyleBackColor = false;
+            this.buttonPrintExcel.Click += new System.EventHandler(this.buttonPrintExcel_Click);
             // 
             // textBoxStartTime
             // 
@@ -268,29 +270,46 @@
             // 
             // button_Save
             // 
-            this.button_Save.Location = new System.Drawing.Point(671, 77);
+            this.button_Save.Location = new System.Drawing.Point(655, 77);
             this.button_Save.Name = "button_Save";
-            this.button_Save.Size = new System.Drawing.Size(70, 30);
+            this.button_Save.Size = new System.Drawing.Size(107, 30);
             this.button_Save.TabIndex = 18;
-            this.button_Save.Text = "Save";
+            this.button_Save.Text = "Save to xml";
             this.button_Save.UseVisualStyleBackColor = true;
             this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
             // 
-            // dataGridView1
+            // button1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(776, 166);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(504, 163);
-            this.dataGridView1.TabIndex = 19;
+            this.button1.Location = new System.Drawing.Point(671, 342);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Pick  File";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(28, 385);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(621, 23);
+            this.progressBar1.TabIndex = 20;
+            // 
+            // pickedFile
+            // 
+            this.pickedFile.Location = new System.Drawing.Point(493, 343);
+            this.pickedFile.Name = "pickedFile";
+            this.pickedFile.Size = new System.Drawing.Size(156, 23);
+            this.pickedFile.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1329, 546);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pickedFile);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxYear);
@@ -312,7 +331,7 @@
             this.Controls.Add(this.buttonPrintExcel);
             this.Name = "Form1";
             this.Text = "Team Time Track";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +358,8 @@
         private ComboBox comboBoxYear;
         private Label label7;
         private Button button_Save;
-        private DataGridView dataGridView1;
+        private Button button1;
+        private ProgressBar progressBar1;
+        private TextBox pickedFile;
     }
 }

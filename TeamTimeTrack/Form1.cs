@@ -1,5 +1,10 @@
 using System.Globalization;
+using System.Security.Cryptography;
 using System.Xml.Serialization;
+using System.Data;
+using System.Runtime.InteropServices;
+using ClosedXML.Excel;
+
 
 namespace TeamTimeTrack
 
@@ -12,8 +17,7 @@ namespace TeamTimeTrack
         {
             InitializeComponent();
         }
-
-
+       
         private void label2_Click(object sender, EventArgs e)
         {
           
@@ -95,13 +99,44 @@ namespace TeamTimeTrack
             List<dayTime> d1 = new List<dayTime>();
             XmlSerializer serial = new XmlSerializer(typeof(List<dayTime>));
             d1.Add(new dayTime() { Day = selectedDay, Month = selectedMonth, Year = selectedYear, startTime = startTime, endTime = endTime, hours = hours, workBreak = workBreak, Task = task});
-            using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Day_Data.xml", FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Month_Data.xml", FileMode.Create, FileAccess.Write))
             {
                 serial.Serialize(fs, d1);
                 MessageBox.Show("Created");
             }
-        }   
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void buttonPrintExcel_Click(object sender, EventArgs e)
+        {
+
+            int selectedDay = int.Parse(comboBoxDay.SelectedItem.ToString());
+            int selectedMonth = int.Parse(comboBoxMonth.SelectedItem.ToString());
+            int selectedYear = int.Parse(comboBoxYear.SelectedItem.ToString());
+            float startTime = float.Parse(textBoxStartTime.Text);
+            float endTime = float.Parse(textBoxEndTime.Text);
+            float hours = endTime - startTime;
+            float workBreak = float.Parse(textBoxBreak.Text);
+            string task = richTextBoxTasks.Text;
+
+
+            XLWorkbook workbook = new XLWorkbook();
+            IXLWorksheet worksheet = workbook.Worksheets.Add(selectedMonth);
+            worksheet.Cell(1, 3).SetValue("AZK");
+            worksheet.Cell(2, 4).SetValue(selectedMonth);
+            worksheet.Cell(2, 5).SetValue("Test Name");
+
+
+        }
     }   
         
 }
